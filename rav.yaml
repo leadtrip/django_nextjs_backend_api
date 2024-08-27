@@ -5,5 +5,9 @@ scripts:
     - python manage.py makemigrations
   migrate:
     - python manage.py migrate
-  curl_auth:
-    curl -X POST -H "Content-Type: application/json" -d '{"username": "mikewood", "password": "mikewood"}' http://127.0.0.1/8000/api/token/pair
+  shell:
+    - python manage.py shell
+  curl_auth: |
+    curl -X POST -H "Content-Type: application/json" -d '{"username": "mikewood", "password": "mikewood"}' http://localhost:8000/api/token/pair
+  curl_protect: |
+    curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI0NTg3MTA4LCJpYXQiOjE3MjQ1ODY4MDgsImp0aSI6ImY3ODNjMTc4ZWZiNjQ4Y2ViNmVhYjYwYjZmNmM3ZDRjIiwidXNlcl9pZCI6MX0.I4Cov4tBUItLQvRh5nOyAGYx8F0rRfvrzJPr2O9PVxw" http://localhost:8000/api/me
